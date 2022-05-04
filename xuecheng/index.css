@@ -1,0 +1,486 @@
+* {
+    padding: 0;
+    margin: 0;
+    /* box-sizing: border-box; */
+}
+
+
+/* 确定版心 这个页面的版心是1200px，每个把版心都居中对齐 */
+
+body {
+    height: 1000px;
+}
+
+.w {
+    width: 1200px;
+    margin: auto;
+    /* min-width: 700px; */
+}
+
+
+/* 针对所有的a */
+
+a {
+    text-decoration: none;
+}
+
+
+/* 针对所有的li */
+
+li {
+    /* 去list小点 */
+    list-style: none;
+}
+
+
+/* 清除浮动 */
+
+
+/* 再在li的父元素 ul上添加.clearfix属性 但是这里我的没生效 */
+
+
+/* .clearfix::before,
+.clearfix::after {
+    content: '';
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+} */
+
+.header {
+    height: 42px;
+    /* background-color: pink; */
+    /* 设置margin或者padding来空出header所要的空白区域 */
+    /* 这里虽然只需要上下margin 但是左右也要加上 auto 
+    因为div同时由w header属性，
+    header的margin后写会将w的margin盖住 就达不到左右居中的效果 */
+    margin: 30px auto;
+}
+
+.logo {
+    float: left;
+    width: 198px;
+    height: 42px;
+    /* background-color: #bfa; */
+}
+
+.nav {
+    /* 这里注意子元素 一浮全浮 仅仅设置nav浮动是不够的 要把旁边的logo也设置为浮动 */
+    float: left;
+    /* 设置离左侧logo的间隔 */
+    margin-left: 60px;
+}
+
+.nav ul li {
+    /* 让li浮动 而不是让a 
+    因为li是块级元素 会独占一行 a是行内元素 本身就在一行 
+    是li在影响布局*/
+    float: left;
+    /* 设置每个字段间隔 */
+    margin: 0 15px;
+}
+
+.nav ul li a {
+    /* a是行内元素 没有高度和宽度 给了宽高 不起作用 故转化为块元素 */
+    display: block;
+    height: 42px;
+    /* 这里不方便给a设置width 因为a宽度是由文字长度决定的
+    可以设置padding */
+    padding: 0 10px;
+    /* 在a中去下划线 但是页面中的连接都是没有下划线的 所以直接在a中设置*/
+    /* text-decoration: none; */
+    /* 设置文字居中 */
+    line-height: 42px;
+    font-size: 18px;
+    color: #050505;
+}
+
+.nav ul li a:hover {
+    border-bottom: 2px solid #00a4ff;
+    color: #00a4ff;
+}
+
+
+/* 搜索框 大盒子 */
+
+.sea {
+    /* 注意sea也要向上面的子元素一样 也要加浮动 */
+    float: left;
+    width: 420px;
+    height: 42px;
+    margin-left: 50px;
+}
+
+.sea input {
+    /* 原本是360 但是设置了左内边距 盒子会向右移15px 故要减掉15 */
+    width: 345px;
+    height: 42px;
+    border: 1px solid #00a4ff;
+    border-right: none;
+    font-size: 14px;
+    color: #bfbfbf;
+    /* 设置边框点击不变黑 */
+    outline: none;
+    /* 为input输入框设置左内边距 */
+    padding-left: 15px;
+    /* 默认的两个行内块元素之间是有 缝隙的 通过都设置float属性来消除 */
+    float: left;
+}
+
+.sea button {
+    /* background-color: #00a4ff; */
+    width: 50px;
+    height: 42px;
+    /* button按钮默认有边框 要去掉 */
+    border: 0;
+    float: left;
+    /* 为什么是这里不加入平铺 加入反而显示有间隔 */
+    background: url(/img/btn.png);
+}
+
+
+/* 用户信息部分 */
+
+.user {
+    float: left;
+    /* background-color: #ffa; */
+    width: 170px;
+    height: 42px;
+    text-align: center;
+    line-height: 42px;
+}
+
+.user .head {
+    float: left;
+    background: url(/img/user1.jpg) no-repeat;
+    /* transform: scale(); */
+    margin-top: 7px;
+    margin-right: -7px;
+    width: 50px;
+    height: 42px;
+}
+
+.user .txt {
+    float: left;
+    color: #666;
+}
+
+
+/* 中间部分 */
+
+.banner {
+    height: 421px;
+    background-color: #1c036c;
+}
+
+.banner .w {
+    height: 421px;
+    /* background-color: pink; */
+    background: url(/img/banner.png) no-repeat;
+}
+
+
+/* 左侧导航栏 */
+
+.left-nav {
+    float: left;
+    /* margin-top: 12px; */
+    width: 190px;
+    height: 421px;
+    /* 黑色半透明 */
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.left-nav ul li {
+    height: 45px;
+    /* 上下居中 */
+    line-height: 45px;
+    margin: 0 20px;
+}
+
+
+/* 过渡 */
+
+.left-nav ul li {
+    /* overflow: hidden; */
+    transform: all 2s;
+}
+
+.left-nav ul li a {
+    display: block;
+}
+
+
+/* 提问：怎么让鼠标悬浮在li上面时 a字体变色 ，而不是只有放在a上面时变色 */
+
+
+/* 将a和右边的大于号 设置成block  成为一个整体*/
+
+.left-nav ul li a:hover {
+    color: #00a4ff;
+    background-color: rgb(82, 82, 81, 0.2);
+    transform: scale(1.1);
+}
+
+
+/* a是行内元素 没有高度 */
+
+.left-nav ul li a {
+    font-size: 14px;
+    color: white;
+}
+
+.left-nav ul li a span {
+    /* 下面两行都能达到效果 */
+    float: right;
+    /* 但是下面这一种在左边字比较多的时候 >显示不出来 */
+    /* margin-left: 70px; */
+}
+
+
+/* 右侧导航栏 */
+
+.right-nav {
+    margin: 60px 0;
+    float: right;
+    width: 228px;
+    height: 300px;
+    /* background: skyblue; */
+    background-color: #fff;
+}
+
+.right-nav h4 {
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    background-color: #9bceea;
+    color: #fff;
+}
+
+.right-nav ul {
+    height: 65px;
+    background-color: #fff;
+}
+
+.right-nav ul li {
+    position: relative;
+    height: 49px;
+    padding: 0 18px 15px 18px;
+    border-bottom: 0.1px solid #efefef;
+}
+
+
+/* 加空格 只对其后代元素有效 */
+
+.right-nav ul li h5:hover {
+    color: #00a4ff;
+}
+
+.right-nav ul li h5 {
+    position: absolute;
+    height: 20.97px;
+    /* 设置字体权重\(^o^)/~ 不然h5要很深很多 */
+    font-weight: 400;
+    color: #050505;
+    font-size: 16px;
+    /* 搞清楚 父元素的padding和子元素的margin */
+    margin-top: 15px;
+}
+
+.right-nav ul li p {
+    position: absolute;
+    color: #a5a5a5;
+    /* 顶部与距离 */
+    margin-top: 37px;
+    font-size: 12px;
+}
+
+
+/* .right-nav .end {
+    
+    border: 1px solid #00a4ff;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+} */
+
+.right-nav input {
+    /* outline: none; */
+    border: 1px solid #00a4ff;
+    width: 198px;
+    height: 40px;
+    font-size: 16px;
+    color: #00a4ff;
+    background-color: #fff;
+    margin: 9px 18px;
+}
+
+.right-nav input:hover {
+    background-color: #00a4ff;
+    color: #fff;
+}
+
+.recomm {
+    margin-top: 8px;
+    height: 60px;
+    background-color: #ffF;
+    box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 2px;
+}
+
+.recomm h4 {
+    float: left;
+    margin: 0px 35px;
+    text-align: center;
+    line-height: 60px;
+}
+
+.recomm ul li {
+    margin: 0px 35px;
+    display: inline;
+    width: 70px;
+    text-align: center;
+    line-height: 60px;
+}
+
+.recomm ul a {
+    color: #050505;
+}
+
+.recomm ul a li:hover {
+    color: #00a4ff;
+}
+
+#end {
+    margin-left: 50px;
+    color: #00a4ff;
+}
+
+
+/* hd部分 */
+
+.video .hd {
+    margin: 25px 0;
+    height: 35px;
+}
+
+.video .hd p {
+    float: left;
+    font-size: 25px;
+    margin-bottom: 0;
+}
+
+.video .hd a {
+    float: right;
+    font-size: 13px;
+    color: #a5a5a5;
+    margin: 15px 30px 0 0;
+}
+
+
+/* 主体 */
+
+.video .bd {
+    margin-top: -15px;
+    height: 270px;
+}
+
+.video ul {
+    width: 1215px;
+}
+
+.video ul li {
+    width: 228px;
+    float: left;
+    height: 270px;
+    /* margin-left: auto; */
+    margin-right: 15px;
+    margin-top: 15px;
+    /* background-color: pink; */
+    box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 2px;
+    transition: all 0.3s;
+}
+
+.video ul li:hover {
+    transform: scale(1.03);
+}
+
+.video ul li p1 {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    color: #050505;
+    margin: 22px 20px 0 20px;
+}
+
+.video ul li p2 {
+    color: orange;
+    margin-left: 20px;
+    font-size: 12px;
+}
+
+.video ul li p3 {
+    font-size: 12px;
+    color: #050505;
+}
+
+.bottom {
+    position: relative;
+    margin-top: 315px;
+    height: 400px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 2px;
+}
+
+.bottom .left {
+    float: left;
+    margin: 35px 0 0 15px;
+    font-size: 12px;
+    color: #666;
+}
+
+.bottom .left p {
+    margin: 20px 0 15px 0;
+    width: 420px;
+    /* 设置文字自动换行 */
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.bottom .left a {
+    display: block;
+    border: 1px solid #00a4ff;
+    font-size: 16px;
+    color: #00a4ff;
+    text-align: center;
+    height: 33px;
+    line-height: 33px;
+    width: 118px;
+}
+
+.bottom .right {
+    float: right;
+    margin-top: 35px;
+    width: 400px;
+}
+
+.bottom .right ul {
+    height: 200px;
+    float: left;
+    margin: 3px;
+}
+
+.bottom .right ul li {
+    margin: 10px 0 10px 0;
+    font-size: 12px;
+}
+
+.bottom .right ul a {
+    font-size: 12px;
+    color: #000;
+}
